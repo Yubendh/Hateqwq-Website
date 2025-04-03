@@ -22,8 +22,11 @@
                 "hero"
                 "main"
                 "about"
+                "peripherals"
+                "reviews"
+                "articles"
                 "footer";
-            grid-template-rows: auto auto auto auto auto;
+            grid-template-rows: auto auto auto auto auto auto auto auto;
             min-height: 100vh;
         }
 
@@ -147,6 +150,10 @@
             left: 0;
         }
 
+        .navbar .logo-container::after {
+            display: none;
+        }
+
         .divider {
             width: 100%;
             height: 10px;
@@ -161,7 +168,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 60px 20px 20px;
+            padding: 30px 20px 0; /* Reduced top padding to move everything up */
             opacity: 0;
             animation: fadeIn 1s forwards 1.5s;
         }
@@ -171,11 +178,11 @@
         }
 
         .profile-img {
-            width: 150px;
+            width: 170px; /* Slightly larger */
             height: auto;
             border-radius: 15px;
             border: 2px solid white;
-            margin-bottom: 20px;
+            margin-bottom: 10px; /* Reduced margin to minimize space */
             transition: transform 0.3s ease;
         }
 
@@ -201,17 +208,25 @@
         }
 
         .text-center h1, .text-center h2 {
-            font-size: 36px;
-            text-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+            font-size: 48px; /* Increased from 36px */
+            text-shadow: 
+                3px 3px 0 #000,
+                5px 5px 10px rgba(0, 0, 0, 0.8),
+                0 0 20px rgba(0, 0, 0, 0.6);
             text-align: center;
+            margin-bottom: 10px;
         }
 
         .text-center p {
-            font-size: 18px;
+            font-size: 22px; /* Increased from 18px */
             font-weight: bold;
-            text-shadow: 5px 5px 8px rgba(0, 0, 0, 1);
+            text-shadow: 
+                2px 2px 0 #000,
+                4px 4px 8px rgba(0, 0, 0, 0.9),
+                0 0 15px rgba(0, 0, 0, 0.7);
             max-width: 800px;
             margin: 0 auto;
+            line-height: 1.5;
         }
 
         .about-me-btn {
@@ -225,14 +240,15 @@
             text-decoration: none;
             color: white;
             font-weight: bold;
-            background-color: transparent;
+            background-color: rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
         }
 
         .about-me-btn:hover, .about-me-btn:focus {
             transform: scale(1.1);
             text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(0, 0, 0, 0.25);
         }
 
         .about-me-btn:active {
@@ -265,6 +281,523 @@
             margin-bottom: 20px;
         }
 
+        .about-content p:last-of-type {
+            margin-bottom: 30px; /* Reduce space between last paragraph and peripherals section */
+        }
+
+        .peripherals-section {
+            grid-area: peripherals;
+            background-color: #1c1c1c; /* Same as about section */
+            padding: 0 20px 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .peripherals-header {
+            background-color: black;
+            margin: 20px -20px 25px; /* Reduced top margin */
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .peripherals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 10px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .peripheral-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 200px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .peripheral-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+        
+        .peripheral-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .peripheral-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .peripheral-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            z-index: 2;
+        }
+        
+        .peripheral-item:hover .peripheral-overlay {
+            transform: translateY(0);
+        }
+        
+        .peripheral-overlay h3 {
+            margin: 0 0 5px 0;
+            font-size: 18px;
+            color: white;
+        }
+        
+        .peripheral-overlay p {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            color: #cccccc;
+        }
+        
+        .peripheral-overlay a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .peripheral-overlay a:hover {
+            color: #e0e0e0;
+            text-decoration: underline;
+        }
+
+        .reviews-section {
+            grid-area: reviews;
+            padding: 60px 0 40px;
+            position: relative;
+            background-color: #151515;
+            z-index: 1;
+            opacity: 0;
+            animation: fadeIn 1s forwards 3.2s;
+            width: 100%;
+            overflow: hidden; /* Prevent horizontal overflow */
+        }
+        
+        .reviews-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            padding: 0 20px;
+        }
+        
+        .reviews-container {
+            width: 100%;
+            position: relative;
+            padding: 20px 0;
+            overflow-x: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.2);
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+        }
+        
+        .reviews-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .reviews-container::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+        
+        .reviews-container::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+        }
+        
+        .reviews-grid {
+            display: flex;
+            gap: 20px;
+            padding: 0 20px;
+            min-width: min-content;
+        }
+        
+        .review-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 300px;
+            height: 220px;
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .review-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+        
+        .review-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .review-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .review-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            z-index: 2;
+        }
+        
+        .review-item:hover .review-overlay {
+            transform: translateY(0);
+        }
+        
+        .review-overlay h3 {
+            margin: 0 0 5px 0;
+            font-size: 18px;
+            color: white;
+        }
+        
+        .review-overlay p {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            color: #cccccc;
+        }
+        
+        .review-overlay a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .review-overlay a:hover {
+            color: #e0e0e0;
+            text-decoration: underline;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+        
+        .scroll-indicator:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+            opacity: 1;
+        }
+        
+        .scroll-left {
+            left: 10px;
+        }
+        
+        .scroll-right {
+            right: 10px;
+        }
+
+        .articles-section {
+            grid-area: articles;
+            padding: 60px 0 40px;
+            position: relative;
+            background-color: #2a2a2a; /* Lighter gray background */
+            z-index: 1;
+            opacity: 0;
+            animation: fadeIn 1s forwards 2.5s;
+            width: 100%;
+            overflow: hidden;
+            position: relative; /* Ensure relative positioning for absolute child elements */
+        }
+        
+        .articles-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            padding: 0 20px;
+        }
+        
+        .articles-container {
+            width: 100%;
+            position: relative;
+            padding: 20px 0;
+            overflow-x: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.2);
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .articles-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .articles-container::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+        
+        .articles-container::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+        }
+        
+        .articles-grid {
+            display: flex;
+            gap: 20px;
+            padding: 0 20px;
+            min-width: min-content;
+        }
+        
+        .article-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 300px;
+            height: 220px;
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .article-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+        
+        .article-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .article-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .article-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            z-index: 2;
+        }
+        
+        .article-item:hover .article-overlay {
+            transform: translateY(0);
+        }
+        
+        .article-overlay h3 {
+            margin: 0 0 5px 0;
+            font-size: 18px;
+            color: white;
+        }
+        
+        .article-overlay p {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            color: #cccccc;
+        }
+        
+        .article-overlay a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .article-overlay a:hover {
+            color: #e0e0e0;
+            text-decoration: underline;
+        }
+        
+        .article-scroll-indicator {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 100; /* Higher z-index to ensure visibility */
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+        
+        .article-scroll-indicator:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+            opacity: 1;
+        }
+        
+        .article-scroll-left {
+            left: 10px;
+        }
+        
+        .article-scroll-right {
+            right: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .text-center h1, .text-center h2 {
+                font-size: 40px;
+            }
+
+            .text-center p {
+                font-size: 20px;
+            }
+
+            .navbar a {
+                font-size: 16px;
+                margin: 0 10px;
+            }
+            
+            .logo {
+                height: 45px;
+            }
+            
+            .about-content h2 {
+                font-size: 26px;
+            }
+            
+            .about-content p {
+                font-size: 16px;
+            }
+            
+            .reviews-title {
+                font-size: 26px;
+            }
+
+            .peripherals-header h1 {
+                font-size: 28px;
+            }
+            
+            .peripherals-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .articles-title {
+                font-size: 26px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .text-center h1, .text-center h2 {
+                font-size: 32px;
+            }
+
+            .text-center p {
+                font-size: 18px;
+            }
+
+            .navbar {
+                height: auto;
+                padding: 15px;
+                flex-direction: column;
+            }
+            
+            .navbar .logo-container {
+                margin-bottom: 15px;
+            }
+            
+            .logo {
+                height: 40px;
+            }
+
+            .navbar a {
+                margin: 5px 0;
+            }
+
+            .profile-img {
+                width: 140px;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+            }
+            
+            .about-content h2 {
+                font-size: 22px;
+            }
+            
+            .about-content p {
+                font-size: 14px;
+            }
+            
+            .reviews-title {
+                font-size: 22px;
+            }
+
+            .review-item {
+                width: 220px;
+                height: 160px;
+            }
+            
+            .scroll-indicator {
+                width: 30px;
+                height: 30px;
+                font-size: 18px;
+            }
+
+            .peripherals-header h1 {
+                font-size: 24px;
+            }
+            
+            .peripherals-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .articles-title {
+                font-size: 22px;
+            }
+            
+            .article-item {
+                width: 220px;
+                height: 160px;
+            }
+            
+            .article-scroll-indicator {
+                width: 30px;
+                height: 30px;
+                font-size: 18px;
+            }
+        }
+
+        /* Footer fix - ensure it's properly positioned at the bottom */
         footer {
             grid-area: footer;
             width: 100%;
@@ -277,8 +810,10 @@
             animation: fadeIn 1s forwards 2s;
             position: relative;
             z-index: 1;
+            margin-top: 0;
         }
 
+        /* Add these missing footer styles */
         footer p {
             color: white;
             font-size: 12px;
@@ -311,77 +846,6 @@
         footer a:hover::after, footer a:focus::after {
             width: 100%;
             left: 0;
-        }
-
-        @media (max-width: 768px) {
-            .text-center h1, .text-center h2 {
-                font-size: 28px;
-            }
-
-            .text-center p {
-                font-size: 16px;
-            }
-
-            .navbar a {
-                font-size: 16px;
-                margin: 0 10px;
-            }
-            
-            .logo {
-                height: 45px;
-            }
-            
-            .about-content h2 {
-                font-size: 26px;
-            }
-            
-            .about-content p {
-                font-size: 16px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .text-center h1, .text-center h2 {
-                font-size: 24px;
-            }
-
-            .text-center p {
-                font-size: 14px;
-            }
-
-            .navbar {
-                height: auto;
-                padding: 15px;
-                flex-direction: column;
-            }
-            
-            .navbar .logo-container {
-                margin-bottom: 15px;
-            }
-            
-            .logo {
-                height: 40px;
-            }
-
-            .navbar a {
-                margin: 5px 0;
-            }
-
-            .profile-img {
-                width: 120px;
-            }
-            
-            .nav-links {
-                flex-direction: column;
-            }
-            
-            .about-content h2 {
-                font-size: 22px;
-            }
-            
-            .about-content p {
-                font-size: 14px;
-            }
         }
     </style>
 </head>
@@ -429,12 +893,161 @@
     <section id="about" class="about-section">
         <div class="about-content">
             <h2>About Me</h2>
-            <p>Welcome to my corner of the web! I'm Days, also known as HateQWQ. I've been passionate about programming and technology for as long as I can remember.</p>
+            <p>Welcome to my corner of the web! I'm Days, also known as HateQWQ. I'm a Peripheral enthusiast from Cambodia as well as an aspiring software developer.</p>
             <p>As a peripheral enthusiast, I spend my time exploring the latest in mice, keyboards, mousepads, and audio. I enjoy testing different setups, finding new and interesting peripherals from different parts of the world to share with everyone.</p>
             <p>As a future software developer, currently studying Software Development in University, I aim to innovate as well as incorporate my love for tech in future projects.</p>
             <p>When I'm not coding or testing new peripherals, you might find me gaming, aim training, as well as consistently participating in discussions about peripherals on multiple platforms!</p>
             <p>Feel free to explore my website to learn more about my projects, reviews, and thoughts on peripherals. If you have any questions or would like to collaborate, don't hesitate to reach out!</p>
+        
+            <div class="peripherals-header">
+                <h1>My Main Peripherals</h1>
+            </div>
+            <div class="peripherals-grid">
+                <div class="peripheral-item">
+                    <img src="Images/pmmzen.png" alt="Gaming Mouse">
+                    <div class="peripheral-overlay">
+                        <h3>Mouse</h3>
+                        <p>PMM Zen 8K. A 34 gram Viper V3 Pro inspired shape. Made of Nylon PA12.</p>
+                        <a href="#">View Details →</a>
+                    </div>
+                </div>
+                
+                <div class="peripheral-item">
+                    <img src="Images/photo2.jpg" alt="Mousepad">
+                    <div class="peripheral-overlay">
+                        <h3>Mousepad</h3>
+                        <p>Artisan Hien FX XSoft - Premium Japanese mousepad with unique texture</p>
+                        <a href="#">View Details →</a>
+                    </div>
+                </div>
+                
+                <div class="peripheral-item">
+                    <img src="Images/photo3.jpg" alt="Hall Effect Keyboard">
+                    <div class="peripheral-overlay">
+                        <h3>Hall Effect Keyboard</h3>
+                        <p>Wooting 60HE - Hall effect keyboard with analog input for precise control</p>
+                        <a href="#">View Details →</a>
+                    </div>
+                </div>
+                
+                <div class="peripheral-item">
+                    <img src="Images/photo2.jpg" alt="Mechanical Keyboard">
+                    <div class="peripheral-overlay">
+                        <h3>Mechanical Keyboard</h3>
+                        <p>Mode Sonnet - Premium 75% keyboard with gasket mount and custom switches</p>
+                        <a href="#">View Details →</a>
+                    </div>
+                </div>
+                
+                <div class="peripheral-item">
+                    <img src="Images/photo4.jpg" alt="Headphones">
+                    <div class="peripheral-overlay">
+                        <h3>Headphones</h3>
+                        <p>Sennheiser HD58X - Open-back headphones with exceptional imaging clarity</p>
+                        <a href="#">View Details →</a>
+                    </div>
+                </div>
+                
+                <div class="peripheral-item">
+                    <img src="Images/kbm.jpg" alt="Monitor">
+                    <div class="peripheral-overlay">
+                        <h3>Monitor</h3>
+                        <p>Alienware AW2521H - 360Hz gaming monitor with lightning fast response time</p>
+                        <a href="#">View Details →</a>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <section class="reviews-section">
+        <h2 class="reviews-title">Peripheral Reviews</h2>
+        <div class="reviews-container" id="reviewsContainer">
+            <div class="reviews-grid">
+                <div class="review-item">
+                    <img src="Images/photo1.jpg" alt="Razer Viper V3 Pro">
+                    <div class="review-overlay">
+                        <h3>Razer Viper V3 Pro</h3>
+                        <p>The best competitive mouse with cutting-edge sensor and lightweight design.</p>
+                        <a href="#">Read Review →</a>
+                    </div>
+                </div>
+                
+                <div class="review-item">
+                    <img src="Images/photo2.jpg" alt="Sennheiser HD6XX">
+                    <div class="review-overlay">
+                        <h3>Sennheiser HD6XX</h3>
+                        <p>Audiophile-grade headphones that deliver exceptional sound quality.</p>
+                        <a href="#">Read Review →</a>
+                    </div>
+                </div>
+                
+                <div class="review-item">
+                    <img src="Images/photo4.jpg" alt="Venom60HE">
+                    <div class="review-overlay">
+                        <h3>Venom60HE Keyboard</h3>
+                        <p>A premium Hall Effect keyboard with unprecedented input speed.</p>
+                        <a href="#">Read Review →</a>
+                    </div>
+                </div>
+                
+                <div class="review-item">
+                    <img src="Images/kbm.jpg" alt="Wallhack Mousepad">
+                    <div class="review-overlay">
+                        <h3>Wallhack Mousepad</h3>
+                        <p>Premium Japanese mousepad offering perfect control and speed balance.</p>
+                        <a href="#">Read Review →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator scroll-left" id="scrollLeft">&lt;</div>
+        <div class="scroll-indicator scroll-right" id="scrollRight">&gt;</div>
+    </section>
+
+    <section class="articles-section">
+        <h2 class="articles-title">Articles</h2>
+        <div class="article-scroll-indicator article-scroll-left" id="articleScrollLeft">&lt;</div>
+        <div class="articles-container" id="articlesContainer">
+            <div class="articles-grid">
+                <div class="article-item">
+                    <img src="Images/photo1.jpg" alt="Gaming Mouse Guide">
+                    <div class="article-overlay">
+                        <h3>Ultimate Gaming Mouse Guide</h3>
+                        <p>Everything you need to know about selecting the perfect gaming mouse for your needs.</p>
+                        <a href="#">Read Article →</a>
+                    </div>
+                </div>
+                
+                <div class="article-item">
+                    <img src="Images/photo2.jpg" alt="Mechanical Keyboards">
+                    <div class="article-overlay">
+                        <h3>Mechanical Keyboard Basics</h3>
+                        <p>A comprehensive guide to mechanical keyboard switches, layouts, and customization options.</p>
+                        <a href="#">Read Article →</a>
+                    </div>
+                </div>
+                
+                <div class="article-item">
+                    <img src="Images/photo3.jpg" alt="Audio Equipment">
+                    <div class="article-overlay">
+                        <h3>Gaming Audio Essentials</h3>
+                        <p>From headsets to DACs: Understanding audio equipment for competitive gaming advantage.</p>
+                        <a href="#">Read Article →</a>
+                    </div>
+                </div>
+                
+                <div class="article-item">
+                    <img src="Images/photo4.jpg" alt="Mousepad Guide">
+                    <div class="article-overlay">
+                        <h3>Mousepad Materials Explained</h3>
+                        <p>The science behind different mousepad surfaces and how they affect your aim.</p>
+                        <a href="#">Read Article →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="article-scroll-indicator article-scroll-right" id="articleScrollRight">&gt;</div>
     </section>
 
     <footer>
@@ -443,5 +1056,111 @@
             <a href="https://github.com/Yubendh">Discord</a>
         </p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('reviewsContainer');
+            const leftBtn = document.getElementById('scrollLeft');
+            const rightBtn = document.getElementById('scrollRight');
+            
+            if (leftBtn && rightBtn && container) {
+                // Scroll amount (approximately the width of one card plus gap)
+                const scrollAmount = 320;
+                
+                // Left button click handler
+                leftBtn.addEventListener('click', function() {
+                    container.scrollBy({
+                        left: -scrollAmount,
+                        behavior: 'smooth'
+                    });
+                });
+                
+                // Right button click handler
+                rightBtn.addEventListener('click', function() {
+                    container.scrollBy({
+                        left: scrollAmount,
+                        behavior: 'smooth'
+                    });
+                });
+                
+                // Touch swipe functionality for mobile
+                let startX;
+                
+                container.addEventListener('touchstart', function(e) {
+                    startX = e.touches[0].clientX;
+                }, { passive: true });
+                
+                container.addEventListener('touchend', function(e) {
+                    const endX = e.changedTouches[0].clientX;
+                    const threshold = 50; // Minimum distance for swipe
+                    
+                    if (startX - endX > threshold) {
+                        // Swipe left - go right
+                        container.scrollBy({
+                            left: scrollAmount,
+                            behavior: 'smooth'
+                        });
+                    } else if (endX - startX > threshold) {
+                        // Swipe right - go left
+                        container.scrollBy({
+                            left: -scrollAmount,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, { passive: true });
+            }
+
+            const articlesContainer = document.getElementById('articlesContainer');
+            const articleLeftBtn = document.getElementById('articleScrollLeft');
+            const articleRightBtn = document.getElementById('articleScrollRight');
+            
+            if (articleLeftBtn && articleRightBtn && articlesContainer) {
+                // Scroll amount (approximately the width of one card plus gap)
+                const scrollAmount = 320;
+                
+                // Left button click handler
+                articleLeftBtn.addEventListener('click', function() {
+                    articlesContainer.scrollBy({
+                        left: -scrollAmount,
+                        behavior: 'smooth'
+                    });
+                });
+                
+                // Right button click handler
+                articleRightBtn.addEventListener('click', function() {
+                    articlesContainer.scrollBy({
+                        left: scrollAmount,
+                        behavior: 'smooth'
+                    });
+                });
+                
+                // Touch swipe functionality for mobile
+                let startX;
+                
+                articlesContainer.addEventListener('touchstart', function(e) {
+                    startX = e.touches[0].clientX;
+                }, { passive: true });
+                
+                articlesContainer.addEventListener('touchend', function(e) {
+                    const endX = e.changedTouches[0].clientX;
+                    const threshold = 50; // Minimum distance for swipe
+                    
+                    if (startX - endX > threshold) {
+                        // Swipe left - go right
+                        articlesContainer.scrollBy({
+                            left: scrollAmount,
+                            behavior: 'smooth'
+                        });
+                    } else if (endX - startX > threshold) {
+                        // Swipe right - go left
+                        articlesContainer.scrollBy({
+                            left: -scrollAmount,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, { passive: true });
+            }
+        });
+    </script>
 </body>
 </html>
