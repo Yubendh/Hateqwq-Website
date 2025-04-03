@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Warping background effect for contact page */
+        body {
+            background: url('Images/aboutme.jpg') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+            overflow-x: hidden;
+            color: white;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(47, 47, 47, 0.7);
+            z-index: -1;
+            animation: warpBackground 18s infinite alternate ease-in-out;
+            transform-origin: center center;
+        }
+
+        @keyframes warpBackground {
+            0% {
+                transform: scale(1.03) translate(-1.5%, -1.5%);
+                filter: brightness(0.92) blur(0px);
+            }
+            50% {
+                transform: scale(1.08) translate(1.5%, 1.5%);
+                filter: brightness(1.02) blur(1px);
+            }
+            100% {
+                transform: scale(1.05) translate(-0.8%, 1.2%);
+                filter: brightness(0.96) blur(0px);
+            }
+        }
+
+        .navbar {
+            height: 70px;
+            background-color: black;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.5s;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 55px;
+            width: auto;
+            opacity: 0.95;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .logo:hover {
+            opacity: 1;
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        .navbar a {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: transform 0.3s, text-shadow 0.3s, color 0.3s;
+            position: relative;
+        }
+        .navbar a:hover, .navbar a:focus {
+            transform: scale(1.1);
+            text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
+            color: #e0e0e0;
+        }
+        .navbar a:active {
+            transform: scale(0.95);
+        }
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        .navbar a:hover::after, .navbar a:focus::after {
+            width: 100%;
+            left: 0;
+        }
+        .navbar .logo-container::after {
+            display: none;
+        }
+        .divider {
+            width: 100%;
+            height: 10px;
+            background-color: #424242;
+            opacity: 0;
+            animation: fadeIn 1s forwards 1s;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            margin-top: 70px;
+            flex: 1;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .text-center {
+            text-align: center;
+            margin-top: 60px;
+            width: 100%;
+        }
+        .text-center h1 {
+            font-size: 42px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+        }
+        .contact-form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #424242;
+            background-color: rgba(47, 47, 47, 0.8);
+            color: white;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: white;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        textarea.form-control {
+            min-height: 200px;
+            resize: vertical;
+        }
+        .submit-btn {
+            padding: 12px 25px;
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            align-self: flex-end;
+        }
+        .submit-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .footer {
+            width: 100%;
+            height: 50px;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: auto;
+        }
+        .footer p {
+            color: white;
+            font-size: 12px;
+            margin: 0;
+        }
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin-left: 10px;
+            transition: all 0.3s;
+            position: relative;
+        }
+        .footer a:hover, .footer a:focus {
+            color: #e0e0e0;
+        }
+        .footer a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 50%;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        .footer a:hover::after, .footer a:focus::after {
+            width: 100%;
+            left: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .text-center h1 {
+                font-size: 36px;
+            }
+            .content {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .text-center h1 {
+                font-size: 28px;
+            }
+            .navbar {
+                height: auto;
+                padding: 15px;
+                flex-direction: column;
+            }
+            .navbar .logo-container {
+                margin-bottom: 15px;
+            }
+            .logo {
+                height: 40px;
+            }
+            .navbar a {
+                margin: 5px 0;
+            }
+            .nav-links {
+                flex-direction: column;
+            }
+            .content {
+                padding: 15px;
+            }
+            .submit-btn {
+                align-self: center;
+                width: 100%;
+            }
+        }
+
+        /* Sponsorships Section */
+        .partnerships-section {
+            background-color: black;
+            padding: 70px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .partnerships-section h2 {
+            font-size: 42px;
+            margin-bottom: 40px;
+        }
+
+        .partnerships-section .status {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .partnerships-section .status::before,
+        .partnerships-section .status::after {
+            content: '';
+            position: absolute;
+            height: 2px;
+            background-color: white;
+            width: 100%;
+            left: 0;
+        }
+
+        .partnerships-section .status::before {
+            top: -5px;
+        }
+
+        .partnerships-section .status::after {
+            bottom: -5px;
+        }
+
+        .partnerships-section p {
+            font-size: 18px;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        /* Social Links Section */
+        .social-links-section {
+            background-color: black;
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        .social-links-section h2 {
+            font-size: 42px;
+            margin-bottom: 50px;
+        }
+
+        .links-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .social-link {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            border-radius: 50px;
+            overflow: hidden;
+            height: 60px;
+            width: 60px;
+            transition: width 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .social-link:hover {
+            width: 200px;
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+        }
+
+        .icon-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .social-link:hover .icon-container {
+            transform: scale(0.8);
+        }
+
+        .link-text {
+            position: absolute;
+            right: 15px;
+            opacity: 0;
+            transition: opacity 0.3s ease 0.1s;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .social-link:hover .link-text {
+            opacity: 1;
+        }
+
+        /* Platform colors */
+        .social-link.twitter {
+            background: linear-gradient(45deg, #1DA1F2, #0d8ecf);
+        }
+
+        .social-link.youtube {
+            background: linear-gradient(45deg, #FF0000, #cc0000);
+        }
+
+        .social-link.gearz {
+            background: linear-gradient(45deg, #838383, #7a7a7a);
+        }
+
+        .social-link.business {
+            background: linear-gradient(45deg, #00C853, #009624);
+        }
+
+        .custom-icon {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .social-link:hover .custom-icon {
+            transform: scale(0.8);
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html" class="logo-container">
+            <img src="Images/logo.png" alt="Logo" class="logo">
+        </a>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="aboutme.html">About Me</a>
+            <a href="projects.html">Reviews</a>
+        </div>
+    </div>
+    <div class="divider"></div>
+    
+    <div class="content">
+        <div class="text-center">
+            <h1>Want to get in touch?</h1>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">First & Last Name (Optional)</label>
+                    <input type="text" id="name" class="form-control" placeholder="Your name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" class="form-control" placeholder="your.email@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <input type="text" id="subject" class="form-control" placeholder="What's this about?" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" class="form-control" placeholder="Your message here..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Sponsorships Section HTML -->
+    <section class="partnerships-section">
+        <h2>Sponsorships & Partnerships</h2>
+        <div class="status">Not at the moment</div>
+        <p>I am currently focusing on building my content and community before entering into formal sponsorships. I believe in maintaining authenticity and providing honest, unbiased opinions about peripherals.</p>
+        <p>As an independent reviewer, I prefer to purchase and thoroughly test products on my own terms, ensuring my reviews remain genuine and trustworthy.</p>
+        <p>If you represent a brand that aligns with my values of quality, innovation, and fair pricing, and you're interested in a potential future collaboration, feel free to reach out through the contact form.</p>
+    </section>
+
+    <!-- Social Links Section HTML -->
+    <section class="social-links-section">
+        <h2>Connect With Me</h2>
+        <div class="links-container">
+            <a href="https://twitter.com/hateqqw" class="social-link twitter">
+                <div class="icon-container">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                </div>
+                <span class="link-text">Twitter</span>
+            </a>
+            
+            <a href="https://youtube.com/" class="social-link youtube">
+                <div class="icon-container">
+                    <i class="fa fa-youtube-play"></i>
+                </div>
+                <span class="link-text">YouTube</span>
+            </a>
+            
+            <a href="https://gearz.com/days" class="social-link gearz">
+                <div class="icon-container">
+                    <img src="Images/gearz-icon.png" alt="Gearz" class="custom-icon">
+                </div>
+                <span class="link-text">Gearz</span>
+            </a>
+            
+            <a href="mailto:business@hateqwq.com" class="social-link business">
+                <div class="icon-container">
+                    <i class="fa fa-envelope"></i>
+                </div>
+                <span class="link-text">Business</span>
+            </a>
+        </div>
+    </section>
+
+    <div class="footer">
+        <p>Contact Me! 
+            <a href="https://x.com/hateqqw">Twitter</a> | 
+            <a href="https://github.com/Yubendh">Discord</a>
+        </p>
+    </div>
+</body>
+</html>
