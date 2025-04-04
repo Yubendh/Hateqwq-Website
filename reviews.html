@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews & Articles</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            animation: fadeIn 1s forwards;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* Warping background effect */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .background img {
+            position: absolute;
+            width: 108%;
+            height: 108%;
+            object-fit: cover;
+            opacity: 0.9;
+            animation: warpBackground 18s infinite alternate ease-in-out;
+            transform-origin: center center;
+        }
+
+        @keyframes warpBackground {
+            0% {
+                transform: scale(1.03) translate(-1.5%, -1.5%);
+                filter: brightness(0.92) blur(0px);
+            }
+            50% {
+                transform: scale(1.08) translate(1.5%, 1.5%);
+                filter: brightness(1.02) blur(1px);
+            }
+            100% {
+                transform: scale(1.05) translate(-0.8%, 1.2%);
+                filter: brightness(0.96) blur(0px);
+            }
+        }
+
+        /* Header and navigation */
+        .navbar {
+            height: 70px;
+            background-color: black;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.5s;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 55px;
+            width: auto;
+            opacity: 0.95;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .logo:hover {
+            opacity: 1;
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .navbar a {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: transform 0.3s, text-shadow 0.3s, color 0.3s;
+            position: relative;
+        }
+
+        .navbar a:hover, .navbar a:focus {
+            transform: scale(1.1);
+            text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
+            color: #e0e0e0;
+        }
+
+        .navbar a:active {
+            transform: scale(0.95);
+        }
+
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        .navbar a:hover::after, .navbar a:focus::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .navbar .logo-container::after {
+            display: none;
+        }
+
+        .divider {
+            width: 100%;
+            height: 10px;
+            background-color: #424242;
+            opacity: 0;
+            animation: fadeIn 1s forwards 1s;
+        }
+
+        /* Main content area */
+        .content-wrapper {
+            flex: 1;
+            padding: 50px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            animation: fadeIn 1s forwards 1.5s;
+        }
+
+        /* Navigation tabs */
+        .content-nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+            gap: 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        /* Improved navigation buttons with better hover effects */
+        .nav-button {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 2px solid white;
+            color: white;
+            padding: 15px 30px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .nav-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+
+        .nav-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-button:hover::before {
+            left: 100%;
+        }
+
+        .nav-button:hover::after {
+            opacity: 1;
+        }
+
+        .nav-button:active {
+            transform: translateY(-2px) scale(0.98);
+            transition-duration: 0.1s;
+        }
+
+        .nav-button.active {
+            background-color: rgba(0, 0, 0, 0.8);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            border-color: #fff;
+            letter-spacing: 0.5px;
+        }
+
+        /* Add this CSS rule to fix the hover effect on active buttons */
+        .nav-button.active:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 0.5px;
+        }
+
+        /* Content sections */
+        .content-section {
+            display: none;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeInScale 0.5s forwards;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-shadow: 
+                3px 3px 0 #000,
+                5px 5px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .item-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .item-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .item-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .item-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .item-card:hover .item-overlay {
+            transform: translateY(0);
+        }
+
+        .item-overlay h3 {
+            margin: 0 0 10px 0;
+            font-size: 22px;
+            color: white;
+        }
+
+        .item-overlay p {
+            margin: 0 0 15px 0;
+            font-size: 16px;
+            color: #cccccc;
+            line-height: 1.4;
+        }
+
+        .learn-more-btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .learn-more-btn:hover {
+            background-color: white;
+            color: black;
+        }
+
+        /* Footer */
+        footer {
+            width: 100%;
+            height: 50px;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: auto;
+            opacity: 0;
+            animation: fadeIn 1s forwards 2s;
+        }
+
+        footer p {
+            color: white;
+            font-size: 12px;
+            margin: 0;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin-left: 10px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        footer a:hover, footer a:focus {
+            color: #e0e0e0;
+        }
+
+        footer a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 50%;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover::after, footer a:focus::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .content-nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .nav-button {
+                width: 80%;
+                text-align: center;
+            }
+            
+            .section-title {
+                font-size: 30px;
+            }
+            
+            .items-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
+            .navbar a {
+                font-size: 16px;
+                margin: 0 10px;
+            }
+            
+            .logo {
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content-wrapper {
+                padding: 30px 15px;
+            }
+            
+            .nav-button {
+                width: 100%;
+                padding: 12px 15px;
+                font-size: 20px;
+            }
+            
+            .section-title {
+                font-size: 26px;
+            }
+            
+            .item-card {
+                height: 200px;
+            }
+            
+            .item-overlay h3 {
+                font-size: 18px;
+            }
+            
+            .item-overlay p {
+                font-size: 14px;
+            }
+            
+            .navbar {
+                height: auto;
+                padding: 15px;
+                flex-direction: column;
+            }
+            
+            .navbar .logo-container {
+                margin-bottom: 15px;
+            }
+            
+            .logo {
+                height: 40px;
+            }
+            
+            .navbar a {
+                margin: 5px 0;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <img src="Images/aboutme.jpg" alt="Background">
+    </div>
+
+    <div class="navbar">
+        <a href="index.html" class="logo-container">
+            <img src="Images/logo.png" alt="Logo" class="logo">
+        </a>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="aboutme.html">About Me</a>
+            <a href="contact.html">Contact Me</a>
+        </div>
+    </div>
+    <div class="divider"></div>
+
+    <div class="content-wrapper">
+        <div class="content-nav">
+            <button class="nav-button active" id="reviews-btn">Reviews</button>
+            <button class="nav-button" id="articles-btn">Articles</button>
+        </div>
+
+        <div class="content-section active" id="reviews-section">
+            <h2 class="section-title">Peripheral Reviews</h2>
+            <div class="items-grid">
+                <div class="item-card">
+                    <img src="Images/photo1.jpg" alt="Razer Viper V3 Pro">
+                    <div class="item-overlay">
+                        <h3>Razer Viper V3 Pro</h3>
+                        <p>The ultimate competitive gaming mouse with cutting-edge sensor technology and an ultra-lightweight design for maximum performance.</p>
+                        <a href="#" class="learn-more-btn">Read Review</a>
+                    </div>
+                </div>
+                
+                <div class="item-card">
+                    <img src="Images/photo4.jpg" alt="Venom60HE Keyboard">
+                    <div class="item-overlay">
+                        <h3>Venom60HE Keyboard</h3>
+                        <p>A premium Hall Effect keyboard featuring analog input for unprecedented speed and precision in both gaming and typing.</p>
+                        <a href="#" class="learn-more-btn">Read Review</a>
+                    </div>
+                </div>
+                
+                <div class="item-card">
+                    <img src="Images/photo2.jpg" alt="Sennheiser HD6XX">
+                    <div class="item-overlay">
+                        <h3>Sennheiser HD6XX</h3>
+                        <p>Audiophile-grade headphones that deliver exceptional sound quality and comfort for immersive gaming and music listening.</p>
+                        <a href="#" class="learn-more-btn">Read Review</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section" id="articles-section">
+            <h2 class="section-title">Peripheral Articles</h2>
+            <div class="items-grid">
+                <div class="item-card">
+                    <img src="Images/photo2.jpg" alt="Mechanical Keyboards Guide">
+                    <div class="item-overlay">
+                        <h3>Mechanical Keyboard Basics</h3>
+                        <p>A comprehensive guide to mechanical keyboard switches, layouts, and customization options for beginners and enthusiasts.</p>
+                        <a href="#" class="learn-more-btn">Read Article</a>
+                    </div>
+                </div>
+                
+                <div class="item-card">
+                    <img src="Images/photo3.jpg" alt="Gaming Audio Guide">
+                    <div class="item-overlay">
+                        <h3>Gaming Audio Essentials</h3>
+                        <p>From headsets to DACs: Understanding audio equipment for competitive gaming advantage and immersive experiences.</p>
+                        <a href="#" class="learn-more-btn">Read Article</a>
+                    </div>
+                </div>
+                
+                <div class="item-card">
+                    <img src="Images/kbm.jpg" alt="Mouse Sensor Technology">
+                    <div class="item-overlay">
+                        <h3>Mouse Sensor Technology</h3>
+                        <p>Exploring the latest advancements in mouse sensor technology and how they impact gaming performance.</p>
+                        <a href="#" class="learn-more-btn">Read Article</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Contact Me! 
+            <a href="https://x.com/hateqqw">Twitter</a> | 
+            <a href="https://github.com/Yubendh">Discord</a>
+        </p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const reviewsBtn = document.getElementById('reviews-btn');
+            const articlesBtn = document.getElementById('articles-btn');
+            const reviewsSection = document.getElementById('reviews-section');
+            const articlesSection = document.getElementById('articles-section');
+            
+            // Handle button clicks
+            reviewsBtn.addEventListener('click', function() {
+                // Update buttons
+                reviewsBtn.classList.add('active');
+                articlesBtn.classList.remove('active');
+                
+                // Update sections
+                reviewsSection.classList.add('active');
+                articlesSection.classList.remove('active');
+            });
+            
+            articlesBtn.addEventListener('click', function() {
+                // Update buttons
+                articlesBtn.classList.add('active');
+                reviewsBtn.classList.remove('active');
+                
+                // Update sections
+                articlesSection.classList.add('active');
+                reviewsSection.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
