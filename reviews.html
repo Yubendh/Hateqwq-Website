@@ -169,91 +169,99 @@
             animation: fadeIn 1s forwards 1.5s;
         }
 
-        /* Navigation tabs */
+        /* Text-based navigation with separator */
         .content-nav {
             display: flex;
             justify-content: center;
+            align-items: center;
             margin-bottom: 50px;
-            gap: 20px;
+            gap: 30px;
             width: 100%;
             max-width: 800px;
         }
 
-        /* Improved navigation buttons with better hover effects */
+        /* Updated navigation button styles to match text width */
         .nav-button {
-            background-color: rgba(0, 0, 0, 0.5);
-            border: 2px solid white;
+            background-color: transparent;
+            border: none;
             color: white;
-            padding: 15px 30px;
-            font-size: 24px;
+            font-size: 26px;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border-radius: 8px;
+            transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .nav-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: all 0.5s ease;
-            z-index: -1;
+            padding: 0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            width: auto; /* Instead of fixed width */
+            display: inline-block;
         }
 
         .nav-button::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(255, 255, 255, 0.1);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background-color: white;
+            transition: all 0.3s ease;
         }
 
         .nav-button:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            border-color: rgba(255, 255, 255, 0.9);
-            letter-spacing: 0.5px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
         }
 
-        .nav-button:hover::before {
-            left: 100%;
-        }
-
-        .nav-button:hover::after {
-            opacity: 1;
-        }
-
-        .nav-button:active {
-            transform: translateY(-2px) scale(0.98);
-            transition-duration: 0.1s;
+        .nav-button:hover::after, 
+        .nav-button.active::after {
+            width: 100%;
+            left: 0;
         }
 
         .nav-button.active {
-            background-color: rgba(0, 0, 0, 0.8);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-            border-color: #fff;
-            letter-spacing: 0.5px;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
         }
 
-        /* Add this CSS rule to fix the hover effect on active buttons */
-        .nav-button.active:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            border-color: rgba(255, 255, 255, 0.9);
-            letter-spacing: 0.5px;
+        .nav-separator {
+            width: 1px;
+            height: 26px;
+            background-color: rgba(255, 255, 255, 0.7);
+            display: block;
+        }
+
+        /* Update mobile styles */
+        @media (max-width: 480px) {
+            .content-nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-button {
+                font-size: 24px;
+            }
+            
+            .nav-separator {
+                display: none;
+            }
+        }
+
+        /* Mobile styles to remove separator and adjust spacing */
+        @media (max-width: 768px) {
+            .content-nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .nav-button {
+                text-align: center;
+                width: auto;
+                padding: 0;
+            }
+            
+            .nav-separator {
+                display: none;
+            }
         }
 
         /* Content sections */
@@ -516,6 +524,7 @@
     <div class="content-wrapper">
         <div class="content-nav">
             <button class="nav-button active" id="reviews-btn">Reviews</button>
+            <div class="nav-separator"></div>
             <button class="nav-button" id="articles-btn">Articles</button>
         </div>
 
