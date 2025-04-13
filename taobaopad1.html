@@ -642,6 +642,164 @@
             }
         }
 
+        /* Price section styling */
+        .price-section {
+            margin-bottom: 50px;
+        }
+        
+        .price-container {
+            background-color: rgba(30, 30, 30, 0.7);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 25px 0;
+        }
+        
+        .price-card {
+            background-color: rgba(40, 40, 40, 0.7);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .price-card h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 22px;
+            color: #f0f0f0;
+            text-align: center;
+        }
+        
+        .price-list {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+        
+        .price-list li {
+            margin-bottom: 10px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        .price-list li:last-child {
+            margin-bottom: 0;
+        }
+        
+        .value-proposition {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .value-proposition h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #f0f0f0;
+        }
+
+        /* Final thoughts section styling */
+        .conclusion-section {
+            margin-bottom: 50px;
+        }
+        
+        .conclusion-content {
+            background-color: rgba(30, 30, 30, 0.7);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .recommendation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .recommendation-card {
+            background-color: rgba(40, 40, 40, 0.7);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .recommendation-card h4 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 18px;
+            color: #f0f0f0;
+        }
+        
+        .recommendation-card p {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        
+        .conclusion-content h3 {
+            font-size: 24px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #f0f0f0;
+        }
+        
+        .upcoming-note {
+            margin-top: 40px;
+            padding: 15px;
+            background-color: rgba(0, 150, 255, 0.2);
+            border-left: 4px solid #0096ff;
+            border-radius: 5px;
+        }
+        
+        .upcoming-note p {
+            margin: 0;
+            font-size: 16px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .price-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .recommendation-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .value-proposition h3, .conclusion-content h3 {
+                font-size: 22px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .price-card h3 {
+                font-size: 20px;
+            }
+            
+            .price-list li {
+                font-size: 14px;
+            }
+            
+            .value-proposition h3, .conclusion-content h3 {
+                font-size: 20px;
+            }
+            
+            .recommendation-card h4 {
+                font-size: 16px;
+            }
+            
+            .recommendation-card p, .upcoming-note p {
+                font-size: 14px;
+            }
+        }
+
         /* Footer */
         footer {
             width: 100%;
@@ -765,6 +923,197 @@
                 font-size: 14px;
             }
         }
+
+        /* Quality section styling */
+        .quality-section {
+            margin-bottom: 50px;
+        }
+        
+        .quality-overview {
+            background-color: rgba(30, 30, 30, 0.7);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .quality-overview h3 {
+            font-size: 26px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #f0f0f0;
+        }
+        
+        .quality-issues {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .issue-card {
+            background-color: rgba(40, 40, 40, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .issue-card h4 {
+            font-size: 22px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #f0f0f0;
+        }
+        
+        .issue-image-container {
+            height: 200px;
+            overflow: hidden;
+            margin: 0 0 15px;
+            border-radius: 8px;
+        }
+        
+        .issue-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .issue-card p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+        
+        .issue-card p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .quality-note {
+            background-color: rgba(255, 140, 0, 0.2);
+            border-left: 4px solid #ff8c00;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        .quality-note p {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .quality-issues {
+                grid-template-columns: 1fr;
+            }
+            
+            .issue-image-container {
+                height: 180px;
+            }
+            
+            .issue-card h4 {
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .issue-card p, .quality-note p {
+                font-size: 14px;
+            }
+        }
+
+        /* Packaging section styling */
+        .packaging-info {
+            background-color: rgba(30, 30, 30, 0.7);
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .packaging-info h3 {
+            font-size: 26px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #f0f0f0;
+        }
+        
+        .packaging-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .packaging-card {
+            background-color: rgba(40, 40, 40, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .packaging-card h4 {
+            font-size: 22px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #f0f0f0;
+        }
+        
+        .packaging-image-container {
+            height: 200px;
+            overflow: hidden;
+            margin: 0 0 15px;
+            border-radius: 8px;
+        }
+        
+        .packaging-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .contents-list {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+        
+        .contents-list li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+        
+        .contents-list ul {
+            padding-left: 20px;
+            margin: 8px 0;
+        }
+        
+        .contents-list ul li {
+            margin-bottom: 5px;
+        }
+        
+        .note {
+            font-style: italic;
+            color: #cccccc;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .packaging-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .packaging-card h4 {
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .contents-list li {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -810,7 +1159,6 @@
                     <li><strong>Aiming Style:</strong> Tracking main, medium-low sensitivity (36cm/360), with heavy emphasis on arm movement.</li>
                     <li><strong>The Finals:</strong> Diamond-Ruby</li>
                     <li><strong>Apex Legends:</strong> Masters</li>
-                    <li><strong>Voltaic Benchmarks:</strong> Master S4 with 2 Grandmaster Tracking scores</li>
                 </ul>
                 
                 <h3>Testing Methodology</h3>
@@ -830,7 +1178,7 @@
             <div class="surface-comparison">
                 <div class="surface-card">
                     <div class="surface-image-container">
-                        <img src="Images/pan-coated.jpg" alt="PAN Coated Glass Mousepad" class="surface-image">
+                        <img src="Images/pancoated.jpg" alt="PAN Coated Glass Mousepad" class="surface-image">
                     </div>
                     <div class="surface-details">
                         <h3>PAN (Coated)</h3>
@@ -845,7 +1193,7 @@
 
                 <div class="surface-card">
                     <div class="surface-image-container">
-                        <img src="Images/joker-uncoated.jpg" alt="Joker Game Uncoated Glass Mousepad" class="surface-image">
+                        <img src="Images/jguncoat.jpg" alt="Joker Game Uncoated Glass Mousepad" class="surface-image">
                     </div>
                     <div class="surface-details">
                         <h3>Joker Game (uncoated) 2024</h3>
@@ -860,7 +1208,7 @@
 
                 <div class="surface-card">
                     <div class="surface-image-container">
-                        <img src="Images/joker-coated.jpg" alt="Joker Game Coated Glass Mousepad" class="surface-image">
+                        <img src="Images/jgcoat.jpg" alt="Joker Game Coated Glass Mousepad" class="surface-image">
                     </div>
                     <div class="surface-details">
                         <h3>Joker Game (coated)</h3>
@@ -890,7 +1238,7 @@
 
                 <div class="surface-card">
                     <div class="surface-image-container">
-                        <img src="Images/sp-004.jpg" alt="SP-004 Glass Mousepad" class="surface-image">
+                        <img src="Images/sp004.jpg" alt="SP-004 Glass Mousepad" class="surface-image">
                     </div>
                     <div class="surface-details">
                         <h3>SP-004</h3>
@@ -923,35 +1271,36 @@
                 
                 <div class="pad-review">
                     <h3>Joker Game (uncoated)</h3>
-                    <p>The overall experience is one of the best out of the bunch. The overall feeling when tracking is extremely smooth; the surface and performance can change drastically depending on the skate used.</p>
+                    <p>This pad specificially has some very unique properties. Firstly, this pad will be extremely reliant on the skates you'll be using. I will completely change the experience depending on the skate used.</p>
                     
-                    <h4>My experience using it for The Finals and Apex:</h4>
-                    <p><strong>With Obsidian Airs:</strong> These provide a nice and quiet experience with this pad specifically. It has very little resistance when making microadjustments, although the main thing to note is stopping power. Despite having used glass for thousands of hours, the Obsidian Airs on the Joker Game uncoated had slightly below average stopping power. Landing flicks and target switching in The Finals felt okay, although I can see some shakiness that comes with having such a fast surface.</p>
+                    <h4>My experience:</h4>
+                    <p><strong>With Obsidian Airs:</strong> These provide a nice and quiet experience with this pad specifically. It has very low resistance when making microadjustments due to the nature of being a glass pad, although the main thing to note is stopping power. Despite having used glass for thousands of hours, the Obsidian Airs on the Joker Game uncoated had great stopping power. This pad basically exaggerates the properties of the skates, so in the case of the Obsidian Airs, it really exaggerated the control aspect of the skates, leading to a very balanced glide that's friendly for anyone new to glass.</p>
                     
-                    <p>The stopping power is further lessened when using more speed focused skates like Jades and Ultraglides. But overall the surface on the uncoated Joker Game felt amazing for tracking but mediocre for static and dynamic clicking. The surface felt extremely similar to a SP-004 in almost every way, down to how silent skates like Obsidian Airs and even less durable Ultraglides felt on the pad, down to the speed increase from the Skypad 3.0, and overall how smooth it is.</p>
+                    <p>Speed is further increased if you use speed focused skates such as XRaypad Jadees and Ultraglides. As I said, this pad heavily exaggerates the skates' properties, therefore jades and ultraglides feel insanely fast with very little stopping power, despite the ultraglides being very worn in for about 3 weeks.</p>
                     
-                    <p><strong>With Ultraglide Glass Mat Blend:</strong> These skates make this pad an absolute speed demon, with microadjustments, tracking, and recoil control feeling effortless. This combination excels at dynamic scenarios but extremely lacks the control and stopping power the Obsidian Airs provided. In my personal experience, this can be a fun surface to play on for people chasing speed on a budget. Noise levels on the pad are still very moderate with Ultraglides, although not as bad as the Skypad 3.0.</p>
+                    <p><strong>With Ultraglide Glass Mat Blend:</strong> These skates make this pad an absolute speed demon, with microadjustments, tracking, and recoil control feeling effortless. This combination excels at dynamic scenarios but personally lacks the control and stopping power the Obsidian Airs provided. I found myself having trouble target switching and acquiring targets due to the speed, but for people who are chasing speed on a budget, this is absolutely the combination for you.</p>
                     
-                    <p>Due to the minimal texture this pad provides, it not only keeps skates fresh for a long time, it provides an extremely nice aiming experience for those who are into games similar to what I listed above.</p>
+                    <p>Although not as smooth as options we'll be discussing later, due to the minimal texture this pad provides, it not only keeps skates fresh for a long time, it provides an extremely nice aiming experience for those who are into games similar to what I listed above.</p>
                 </div>
                 
                 <div class="pad-review">
                     <h3>Joker Game (coated)</h3>
                     <p>Extremely disappointing surface, almost to the point of not being playable. The overall performance of this pad feels insanely inconsistent. You can notice a bunch of slow spots develop on this pad. Personally in the middle of the pad where I usually aim, this pad has an extremely sluggish experience with inconsistent dynamic friction.</p>
                     
-                    <div class="inconsistency-demo">
-                        <img src="Images/joker-coated-inconsistency.gif" alt="Demonstration of inconsistent glide on Joker Game coated pad" class="demo-gif">
-                        <p class="gif-caption">Demonstration of inconsistent glide - different areas of the pad showing varying resistance</p>
-                    </div>
-                    
                     <p>I do not know if this was an issue with the coating process of the pad, but overall I don't find it playable for me. I am going to keep this part very brief as I am very disappointed in the quality of this unit specifically. You can feel how inconsistent it is when tracking, and static scenarios can be a hit or miss depending on the location of the slow spots.</p>
                 </div>
                 
                 <div class="pad-review">
                     <h3>PAN (coated)</h3>
-                    <p>TBD - So far a more balanced leaning towards control experience. Unlike Joker Game's coated offering, this surface felt more consistent with microadjustments feeling a little bit more resistant than the uncoated Joker Game but provides adequate stopping power for target switching and both dynamic & static clicking.</p>
+                    <p>This has been the newest pad in my collection, provides a very balanced glide and a relatively comfortable and consistent experience compared to the Joker Game uncoated.</p>
+
+                    <p>The coating of this pad has so far have not been an issue. No problems with inconsistency in speed or performance.</p>
+
+                    <p><strong>With Obsidian Airs:</strong> The pad provides a very moderate amount of resistance when tracking or doing recoil control. Inputs will still feel smooth and consistent but it is actually slightly easier to get the mouse going on this pad compared to the Joker Game uncoated. The amount of stopping power is also overall less than Joker Game uncoated. Tracking with this mousepad felt amazing. I personally had a lot of confidence taking 1v1 aim duels without worrying about absurd amount of speed or control. Static and dynamic clicking also felt amazing, never once where this pad was too fast to the point where clicking and stopping would cause shaking or inconsistencies for me. Tracking and recoil control were all smooth motions and long range tracking was absolutely amazing as the very moderate resistance (for a glass pad) wouldn't make me overreact to strafes or direction changes.</p>
                     
-                    <p>This section will be updated further with more testing.</p>
+                    <p><strong>With Ultraglide Glass Mat Blend:</strong> This was a rather shocking experience for me. The pad with worn ultraglides would definitely be a speed increase, it wasn't as fast as the Joker Game uncoated and I actually did not feel a noticable difference in stopping power between the Obsidian airs. This experience was a rather nice speedy experience, very low resistance and force to get the mouse going with the perfect amount of stopping power for me. To keep this section short, every single aiming scenario feel extremely comfortable, and never once where I felt that any part of this pad was really holding me back.</p>
+                    
+                    <p>TLDR : This pad is a great balanced experience although can still be affected (in terms of amount of force to get the mouse moving) by faster/slower skates.</p>
                 </div>
             
                 <h3 class="section-subheading">Glide Test Comparisons</h3>
@@ -963,7 +1312,7 @@
                         <div class="glide-card">
                             <h4>Joker Game (uncoated)</h4>
                             <div class="glide-demo">
-                                <img src="Images/joker-uncoated-glide.gif" alt="Glide test on Joker Game uncoated" class="glide-gif">
+                                <img src="Images/jguncoated.gif" alt="Glide test on Joker Game uncoated" class="glide-gif">
                             </div>
                             <p class="glide-description">Smooth, fast glide with minimal initial friction. Notice the extended slide distance showing low stopping power.</p>
                         </div>
@@ -971,7 +1320,7 @@
                         <div class="glide-card">
                             <h4>Joker Game (coated)</h4>
                             <div class="glide-demo">
-                                <img src="Images/joker-coated-glide.gif" alt="Glide test on Joker Game coated" class="glide-gif">
+                                <img src="Images/jgcoat.gif" alt="Glide test on Joker Game coated" class="glide-gif">
                             </div>
                             <p class="glide-description">Inconsistent glide with noticeable slow spots. Mouse doesn't maintain consistent momentum across the surface.</p>
                         </div>
@@ -979,7 +1328,7 @@
                         <div class="glide-card">
                             <h4>PAN (coated)</h4>
                             <div class="glide-demo">
-                                <img src="Images/pan-coated-glide.gif" alt="Glide test on PAN coated" class="glide-gif">
+                                <img src="Images/pancoated.gif" alt="Glide test on PAN coated" class="glide-gif">
                             </div>
                             <p class="glide-description">Balanced glide with moderate initial friction. Provides better stopping power than uncoated options while maintaining smooth movement.</p>
                         </div>
@@ -987,7 +1336,7 @@
                         <div class="glide-card">
                             <h4>Skypad 3.0</h4>
                             <div class="glide-demo">
-                                <img src="Images/skypad-glide.gif" alt="Glide test on Skypad 3.0" class="glide-gif">
+                                <img src="Images/skypad.gif" alt="Glide test on Skypad 3.0" class="glide-gif">
                             </div>
                             <p class="glide-description">Textured glide with moderate friction. The micro-texture creates a balanced, controlled movement with good stopping power.</p>
                         </div>
@@ -995,7 +1344,7 @@
                         <div class="glide-card">
                             <h4>SP-004</h4>
                             <div class="glide-demo">
-                                <img src="Images/sp004-glide.gif" alt="Glide test on SP-004" class="glide-gif">
+                                <img src="Images/sp004.gif" alt="Glide test on SP-004" class="glide-gif">
                             </div>
                             <p class="glide-description">Very similar to Joker Game uncoated. Fast, smooth glide with minimal friction and extended slide characteristics.</p>
                         </div>
@@ -1033,7 +1382,7 @@
                         <div class="base-option">
                             <h4>Full Coverage Base</h4>
                             <div class="base-image-container">
-                                <img src="Images/full-coverage-base.jpg" alt="Full coverage base with honeycomb pattern" class="base-image">
+                                <img src="Images/fullcov.jpg" alt="Full coverage base with honeycomb pattern" class="base-image">
                             </div>
                             <p>The full coverage base option provides better print protection while maintaining good desk adhesion.</p>
                         </div>
@@ -1041,7 +1390,7 @@
                         <div class="base-option">
                             <h4>Rubber Corner Feet</h4>
                             <div class="base-image-container">
-                                <img src="Images/corner-feet-base.jpg" alt="Rubber corner feet on glass mousepad" class="base-image">
+                                <img src="Images/dot.jpg" alt="Rubber corner feet on glass mousepad" class="base-image">
                             </div>
                             <p>These are the cheapest option you can get. These provide better stick-to-desk performance but sacrifice:</p>
                             <ul>
@@ -1049,6 +1398,197 @@
                                 <li>The mousepad bending with any bit of pressure or weight put on it. This can sometimes lead to mouse wobble when using dot skates</li>
                             </ul>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-heading">Packaging and Contents</h2>
+
+            <div class="packaging-info">
+                <h3>Packaging and Contents</h3>
+                <p>The packaging and included accessories vary between these budget glass mousepads.</p>
+                
+                <div class="packaging-grid">
+                    <div class="packaging-card">
+                        <h4>PAN Glass Pad</h4>
+                        <div class="packaging-image-container">
+                            <img src="Images/panpadbruh.jpg" alt="PAN Glass Pad contents" class="packaging-image">
+                        </div>
+                        <ul class="contents-list">
+                            <li><strong>Packaging:</strong> Basic box with protective foam inserts</li>
+                            <li><strong>Included accessories:</strong>
+                                <ul>
+                                    <li>Microfiber wiping cloth</li>
+                                    <li>Wet wipe for initial cleaning</li>
+                                    <li>Teflon skates (replacement mouse feet)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="packaging-card">
+                        <h4>Joker Game</h4>
+                        <ul class="contents-list">
+                            <li><strong>Packaging:</strong> Basic box with hard styrofoam protection</li>
+                            <li><strong>Included accessories:</strong>
+                                <ul>
+                                    <li>OEM Jade skates (mouse feet only)</li>
+                                    <li>No cleaning supplies included</li>
+                                </ul>
+                            </li>
+                            <p class="note">The Joker Game provides minimal accessories compared to the PAN, which may require purchasing separate cleaning supplies for maintenance.</p>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-heading">Quality Control Considerations</h2>
+
+            <div class="quality-section">
+                <div class="quality-overview">
+                    <h3>Common Issues</h3>
+                    <p>While these budget glass pads offer excellent value, they do come with some quality control considerations that potential buyers should be aware of. The two most common issues are edge chipping and print peeling.</p>
+                </div>
+                
+                <div class="quality-issues">
+                    <div class="issue-card">
+                        <h4>Edge Chipping</h4>
+                        <div class="issue-image-container">
+                            <img src="Images/edgechip.jpg" alt="Edge chipping on glass mousepad" class="issue-image">
+                        </div>
+                        <p>Some units may arrive with minor chipping on the edges. While these chips don't typically affect performance, they can look visually unappealing. Additionally, chipped edges may continue to deteriorate over time.</p>
+
+                        <p>This was an issue with PAN Peripherals pad.</p>
+                    </div>
+                    
+                    <div class="issue-card">
+                        <h4>Print Peeling</h4>
+                        <div class="issue-image-container">
+                            <img src="Images/printpeel.jpg" alt="Print peeling on glass mousepad" class="issue-image">
+                        </div>
+                        <p>As mentioned in the base section, the printed design layer is extremely thin and fragile. If exposed (especially with rubber corner feet options), the print can begin to peel, creating transparent spots that may be visually distracting.</p>
+                        <p>While this is primarily a cosmetic issue, severe peeling can very much be a problem. Always opt for the full-coverage base option to minimize this risk, and handle the pad carefully during cleaning and repositioning.</p>
+                    </div>
+                </div>
+                
+                <div class="quality-note">
+                    <p><strong>Important:</strong> These quality issues should be considered in context of the price. While premium options like the Skypad/Wallhack generally have better quality control, they come at significantly higher prices. For many users, the minor quality compromises are an acceptable trade-off for the substantial cost savings.</p>
+                </div>
+            </div>
+
+            <h2 class="section-heading">Comparisons to Premium Options</h2>
+
+            <div class="performance-section">
+                <div class="pad-review">
+                    <h3>VS. Skypad 3.0</h3>
+                    <p>The Skypad 3.0 has been the OG glass pad, but how do our budget options compare?</p>
+                    
+                    <h4>Surface Texture</h4>
+                    <p>The Skypad 3.0 has a distinctly textured surface compared to the Joker Game (uncoated) and PAN. This texture provides more consistent stopping power but also increases skate wear. Both budget options have smoother surfaces that are gentler on skates.</p>
+                    
+                    <h4>Glide Performance</h4>
+                    <p><strong>Initial Friction:</strong> The Skypad has higher initial friction due to its texture, making microadjustments require slightly more force compared to the smoother PAN and Joker Game pads.</p>
+                    
+                    <p><strong>Dynamic Friction:</strong> Once in motion, the texture is even more apparent and feels relatively controlled compared to the smooth and fast experience of the Taobao pads.</p>
+                    
+                    <h4>Build Quality</h4>
+                    <p>The Skypad 3.0 has superior quality in both the edges and bottom/print protection. The budget options have acceptable but less refined edge treatment. The Skypad also arrives in premium packaging with better protective material.</p>
+                    
+                    <h4>Verdict</h4>
+                    <p>Both PAN and Joker game provide a much better experience for a significantly lower price. The 3.0's quality is better but some users could be willing to accept this tradeoff.</p>
+                </div>
+                
+                <div class="pad-review">
+                    <h3>VS. SP-004</h3>
+                    <p>The SP-004 sits as the best comparision. Here's how our tested pads compare:</p>
+                    
+                    <h4>Surface Feel</h4>
+                    <p>The SP-004 is remarkably similar to the Joker Game (uncoated), offering a smooth, fast surface with minimal texture. Both pads feel nearly identical in general use, with the SP-004 having slightly better consistency across the surface.</p>
+                    
+                    <h4>Performance Characteristics</h4>
+                    <p><strong>Speed:</strong> Both the SP-004 and Joker Game (uncoated) offer very similiar speed and overall surface properties. In direct comparison, they offer nearly identical performance with most skate types.</p>
+                    
+                    <p><strong>Stopping Power:</strong> Same.</p>
+                    
+                    <h4>Build Quality</h4>
+                    <p>The SP-004 has significantly better base adhesion and more consistent edge finishing. The base compared to the full coverage PAN is significantly better at sticking to the desk as well as protecting the print of the mousepad.</p>
+                    
+                    <h4>Verdict</h4>
+                    <p>The Joker Game (uncoated) performs at approximately 95% of the SP-004's level with significantly worse build quality but at a significantly lower price.. For players seeking some way to try the SP-004, I find the Joker Game uncoated to be the best option.</p>
+                </div>
+            </div>
+
+            <h2 class="section-heading">Price Comparison</h2>
+
+            <div class="price-section">
+                <div class="price-container">
+                    <p>One of the most compelling aspects of these budget glass pads is their exceptional value. Here's how they compare in terms of pricing:</p>
+                    
+                    <div class="price-grid">
+                        <div class="price-card">
+                            <h3>Premium Options</h3>
+                            <ul class="price-list">
+                                <li><strong>Skypad 3.0:</strong> $109 USD (can be found for way less with constant discounts)</li>
+                                <li><strong>SP-004:</strong> $119 USD</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="price-card">
+                            <h3>Budget Options</h3>
+                            <ul class="price-list">
+                                <li><strong>PAN (coated):</strong> $38 USD</li>
+                                <li><strong>Joker Game (uncoated):</strong> $25 USD</li>
+                                <li><strong>Joker Game (coated):</strong> $38 USD</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="value-proposition">
+                        <h3>Value Analysis</h3>
+                        <p>The budget options provide approximately 90-95% of the premium performance at roughly 30-40% of the cost. For most people, performance difference will not be a main priority, but price is very compelling.</p>
+                        
+                        <p>When considering factors like shipping, potential import fees, and the risk of damage during transit, the lower investment in a budget option can also reduce overall purchasing anxiety.</p>
+                        
+                        <p><strong>Best Value Pick:</strong> The PAN (coated) offers the best balance of performance, consistency, and price in my testing, making it my top recommendation for those new to glass mousepads.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-heading">Final Thoughts</h2>
+
+            <div class="conclusion-section">
+                <div class="conclusion-content">
+                    <p>Overall these budget glass pads have been pleasant to use.</p>
+                    
+                    <h3>Recommendations</h3>
+                    
+                    <div class="recommendation-grid">
+                        <div class="recommendation-card">
+                            <h4>Best Overall: PAN (coated)</h4>
+                            <p>The PAN offers the most consistent, balanced experience. The coated applied to the glass makes the experience beginner friendly in terms of aiming and also skin friendly.</p>
+                        </div>
+                        
+                        <div class="recommendation-card">
+                            <h4>Best for Speed: Joker Game (uncoated)</h4>
+                            <p>If you prefer a faster, lower-friction surface, the Joker Game (uncoated) delivers exceptional speed with minimal initial friction.</p>
+                        </div>
+                        
+                        <div class="recommendation-card">
+                            <h4>Avoid: Joker Game (coated)</h4>
+                            <p>The inconsistent surface of the coated variant made for a frustrating experience. I cannot recommend this version based on my testing unit.</p>
+                        </div>
+                    </div>
+                    
+                    <h3>Should You Upgrade?</h3>
+                    <p>If you're currently using a cloth pad and curious about glass, these budget options present a low-risk entry point. The performance benefits of glass – consistency, durability, and cleaning ease – are the main selling point.</p>
+                    
+                    <p>For those already using premium glass pads, I see little reason to "downgrade" unless you want customized prints.</p>
+                    
+                    <h3>Future Outlook</h3>
+                    <p>The gap between budget and premium glass mousepads has narrowed dramatically. As manufacturing processes improve and more options enter the market, I expect this trend to continue with other upcoming releases like the <strong>Tekkusai Singularity</strong>, potentially forcing premium brands to either reduce prices or innovate in meaningful ways.</p>
+                    
+                    <div class="upcoming-note">
+                        <p><strong>Stay tuned for an upcoming guide on how to purchase these pads from Taobao, including agent recommendations and step-by-step instructions!</strong></p>
                     </div>
                 </div>
             </div>
@@ -1063,4 +1603,3 @@
     </footer>
 </body>
 </html>
-``` 
