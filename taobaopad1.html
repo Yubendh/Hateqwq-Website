@@ -497,10 +497,11 @@
             overflow: hidden;
         }
         
-        .glide-gif {
+        .glide-video {
             width: 100%;
             border-radius: 5px;
             display: block;
+            background-color: #111;
         }
         
         .glide-description {
@@ -583,6 +584,14 @@
         .glide-control-button.in-progress {
             background-color: rgba(60, 60, 150, 0.8);
             cursor: not-allowed;
+        }
+
+        @media (max-width: 768px) {
+            .glide-control-button {
+                padding: 15px 24px;
+                font-size: 16px;
+                max-width: 220px;
+            }
         }
 
         /* Base & Print section styling */
@@ -1346,7 +1355,9 @@
                         <div class="glide-card">
                             <h4>Joker Game (uncoated)</h4>
                             <div class="glide-demo">
-                                <img src="images/jgcoated_static.png" alt="Glide test on Joker Game uncoated" class="glide-gif" data-gif="images/jguncoated.gif">
+                                <video class="glide-video" poster="images/jgcoated_static.png" preload="auto" muted playsinline>
+                                    <source src="videos/jguncoated.mp4" type="video/mp4">
+                                </video>
                             </div>
                             <p class="glide-description">Smooth, fast glide with minimal initial friction. Notice the extended slide distance showing low stopping power.</p>
                         </div>
@@ -1354,7 +1365,9 @@
                         <div class="glide-card">
                             <h4>Joker Game (coated)</h4>
                             <div class="glide-demo">
-                                <img src="images/jgcoat_static.png" alt="Glide test on Joker Game coated" class="glide-gif" data-gif="images/jgcoat.gif">
+                                <video class="glide-video" poster="images/jgcoat_static.png" preload="auto" muted playsinline>
+                                    <source src="videos/jgcoat.mp4" type="video/mp4">
+                                </video>
                             </div>
                             <p class="glide-description">Inconsistent glide with noticeable slow spots. Mouse doesn't maintain consistent momentum across the surface.</p>
                         </div>
@@ -1362,7 +1375,9 @@
                         <div class="glide-card">
                             <h4>PAN (coated)</h4>
                             <div class="glide-demo">
-                                <img src="images/pancoated_static.png" alt="Glide test on PAN coated" class="glide-gif" data-gif="images/pancoated.gif">
+                                <video class="glide-video" poster="images/pancoated_static.png" preload="auto" muted playsinline>
+                                    <source src="videos/pancoated.mp4" type="video/mp4">
+                                </video>
                             </div>
                             <p class="glide-description">Balanced glide with moderate initial friction. Provides better stopping power than uncoated options while maintaining smooth movement.</p>
                         </div>
@@ -1370,7 +1385,9 @@
                         <div class="glide-card">
                             <h4>Skypad 3.0</h4>
                             <div class="glide-demo">
-                                <img src="images/skypad_static.png" alt="Glide test on Skypad 3.0" class="glide-gif" data-gif="images/skypad.gif">
+                                <video class="glide-video" poster="images/skypad_static.png" preload="auto" muted playsinline>
+                                    <source src="videos/skypad.mp4" type="video/mp4">
+                                </video>
                             </div>
                             <p class="glide-description">Textured glide with moderate friction. The micro-texture creates a balanced, controlled movement with good stopping power.</p>
                         </div>
@@ -1378,7 +1395,9 @@
                         <div class="glide-card">
                             <h4>SP-004</h4>
                             <div class="glide-demo">
-                                <img src="images/sp004_static.png" alt="Glide test on SP-004" class="glide-gif" data-gif="images/sp004.gif">
+                                <video class="glide-video" poster="images/sp004_static.png" preload="auto" muted playsinline>
+                                    <source src="videos/sp004.mp4" type="video/mp4">
+                                </video>
                             </div>
                             <p class="glide-description">Very similar to Joker Game uncoated. Fast, smooth glide with minimal friction and extended slide characteristics.</p>
                         </div>
@@ -1639,18 +1658,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const playButton = document.getElementById('playGlideTestsBtn');
-            const glideImages = document.querySelectorAll('.glide-gif');
-            
-            // Setup for all devices
-            glideImages.forEach(img => {
-                // Store the actual GIF URL as a data attribute if not already set
-                if (!img.hasAttribute('data-gif')) {
-                    img.setAttribute('data-gif', img.src);
-                    // Create static image name
-                    const staticSrc = img.src.replace('.gif', '_static.png');
-                    img.src = staticSrc;
-                }
-            });
+            const glideVideos = document.querySelectorAll('.glide-video');
             
             // Make button work for all devices
             playButton.addEventListener('click', function() {
@@ -1663,34 +1671,28 @@
                 playButton.textContent = 'Glide Test in Progress';
                 playButton.classList.add('in-progress');
                 
-                // Store static images and replace with GIFs
-                glideImages.forEach(img => {
-                    // Store current static image
-                    const staticSrc = img.src;
-                    img.setAttribute('data-static', staticSrc);
-                    
-                    // Change to GIF with cache-busting parameter to force reset
-                    const gifUrl = img.getAttribute('data-gif');
-                    if (gifUrl) {
-                        // Add a timestamp to force GIF reload
-                        const cacheBuster = '?t=' + new Date().getTime();
-                        img.src = gifUrl + cacheBuster;
-                    }
+                // First reset all videos to beginning
+                glideVideos.forEach(video => {
+                    video.currentTime = 0;
                 });
                 
-                // Reset button and images after 2.3 seconds
+                // Play all videos simultaneously
+                glideVideos.forEach(video => {
+                    video.play();
+                });
+                
+                // Reset after videos should have played (around 2.3 seconds)
                 setTimeout(() => {
+                    // Reset button
                     playButton.textContent = 'Click for Glide Test';
                     playButton.classList.remove('in-progress');
                     
-                    // Return to static images
-                    glideImages.forEach(img => {
-                        const staticSrc = img.getAttribute('data-static');
-                        if (staticSrc) {
-                            img.src = staticSrc;
-                        }
+                    // Pause all videos and reset to beginning
+                    glideVideos.forEach(video => {
+                        video.pause();
+                        video.currentTime = 0;
                     });
-                }, 2300);
+                }, 2300); // Adjust this time based on your video lengths
             });
         });
     </script>
