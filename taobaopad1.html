@@ -1641,12 +1641,12 @@
             const playButton = document.getElementById('playGlideTestsBtn');
             const glideImages = document.querySelectorAll('.glide-gif');
             
-            // Setup for all devices, not just desktop
+            // Setup for all devices
             glideImages.forEach(img => {
                 // Store the actual GIF URL as a data attribute if not already set
                 if (!img.hasAttribute('data-gif')) {
                     img.setAttribute('data-gif', img.src);
-                    // Create static image name (replace .gif with _static.jpg or _static.png)
+                    // Create static image name
                     const staticSrc = img.src.replace('.gif', '_static.png');
                     img.src = staticSrc;
                 }
@@ -1669,10 +1669,12 @@
                     const staticSrc = img.src;
                     img.setAttribute('data-static', staticSrc);
                     
-                    // Change to GIF
+                    // Change to GIF with cache-busting parameter to force reset
                     const gifUrl = img.getAttribute('data-gif');
                     if (gifUrl) {
-                        img.src = gifUrl;
+                        // Add a timestamp to force GIF reload
+                        const cacheBuster = '?t=' + new Date().getTime();
+                        img.src = gifUrl + cacheBuster;
                     }
                 });
                 
