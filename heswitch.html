@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Days' Personal Hall Effect Switch Roundup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            animation: fadeIn 1s forwards;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: black;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* Header and navigation */
+        .navbar {
+            height: 70px;
+            background-color: black;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.5s;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 55px;
+            width: auto;
+            opacity: 0.95;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .logo:hover {
+            opacity: 1;
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .navbar a {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: transform 0.3s, text-shadow 0.3s, color 0.3s;
+            position: relative;
+        }
+
+        .navbar a:hover, .navbar a:focus {
+            transform: scale(1.1);
+            text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
+            color: #e0e0e0;
+        }
+
+        .navbar a:active {
+            transform: scale(0.95);
+        }
+
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        .navbar a:hover::after, .navbar a:focus::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .navbar .logo-container::after {
+            display: none;
+        }
+
+        .divider {
+            width: 100%;
+            height: 10px;
+            background-color: #424242;
+            opacity: 0;
+            animation: fadeIn 1s forwards 1s;
+        }
+
+        /* Article container */
+        .article-container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 1.5s;
+            flex: 1;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-title {
+            font-size: 48px;
+            margin-bottom: 15px;
+            text-shadow: 
+                3px 3px 0 #000,
+                5px 5px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .article-author {
+            font-size: 18px;
+            color: #ccc;
+            font-style: italic;
+        }
+
+        .article-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Coming Soon styling */
+        .coming-soon-container {
+            text-align: center;
+            padding: 60px 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+            background: linear-gradient(145deg, rgba(30, 30, 40, 0.7) 0%, rgba(15, 15, 20, 0.7) 100%);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .coming-soon-text {
+            font-size: 72px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            background: linear-gradient(to right, #5e60ce, #48bfe3, #56cfe1, #64dfdf);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            letter-spacing: 4px;
+        }
+        
+        .coming-soon-description {
+            font-size: 20px;
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #cccccc;
+        }
+        
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 36px;
+            }
+            
+            .navbar {
+                flex-direction: column;
+                height: auto;
+                padding: 10px;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .navbar a {
+                margin: 5px 10px;
+                font-size: 18px;
+            }
+
+            .coming-soon-text {
+                font-size: 54px;
+                letter-spacing: 2px;
+            }
+            
+            .coming-soon-description {
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .article-title {
+                font-size: 28px;
+            }
+            
+            .article-author {
+                font-size: 14px;
+            }
+            
+            .navbar a {
+                font-size: 16px;
+                margin: 3px 8px;
+            }
+
+            .coming-soon-container {
+                padding: 40px 15px;
+            }
+            
+            .coming-soon-text {
+                font-size: 42px;
+                letter-spacing: 1px;
+            }
+            
+            .coming-soon-description {
+                font-size: 16px;
+            }
+        }
+
+        /* Footer styling - add this to your CSS */
+        footer {
+            width: 100%;
+            height: 50px;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            animation: fadeIn 1s forwards 2s;
+            margin-top: auto;
+        }
+
+        footer p {
+            color: white;
+            font-size: 12px;
+            margin: 0;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin-left: 10px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        footer a:hover, footer a:focus {
+            color: #e0e0e0;
+        }
+
+        footer a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 50%;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover::after, footer a:focus::after {
+            width: 100%;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <a href="home.html" class="logo-container">
+                <img src="images/logo.png" alt="Logo" class="logo">
+            </a>
+            <div class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="contact.html">Contact Me</a>
+            </div>
+        </div>
+        <div class="divider"></div>
+    </header>
+
+    <div class="article-container">
+        <div class="article-header">
+            <h1 class="article-title">Days' Personal Hall Effect Switch Roundup</h1>
+            <p class="article-author">By Days</p>
+        </div>
+        
+        <img src="images/switches.jpg" alt="Hall Effect Switches" class="article-image">
+        
+        <div class="coming-soon-container">
+            <div class="coming-soon-text">COMING SOON</div>
+            <p class="coming-soon-description">I'm still testing.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Contact Me! 
+            <a href="https://x.com/hateqqw">Twitter</a> 
+            <a href="https://github.com/Yubendh">Github</a>
+        </p>
+    </footer>
+</body>
+</html>

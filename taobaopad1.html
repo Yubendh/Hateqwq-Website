@@ -552,6 +552,39 @@
             }
         }
 
+        /* Control button styling */
+        .glide-control-button {
+            background-color: rgba(80, 80, 200, 0.8);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+            user-select: none;
+            text-align: center;
+            max-width: 200px;
+        }
+        
+        .glide-control-button:hover {
+            background-color: rgba(90, 90, 220, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+        }
+        
+        .glide-control-button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .glide-control-button.in-progress {
+            background-color: rgba(60, 60, 150, 0.8);
+            cursor: not-allowed;
+        }
+
         /* Base & Print section styling */
         .base-print-section {
             margin-bottom: 50px;
@@ -1143,7 +1176,7 @@
             
             <p>In this article, I'll explore several budget-friendly glass mousepads from Taobao and other sources that offer impressive performance without breaking the bank. We'll compare these affordable options to high-end mousepads and determine if the savings are worth any potential compromises.</p>
             
-            <p>The mousepads tested include the PAN glass pad, Joker Game pad, and more budget options from other brands.Each pad was tested with 2 of my favorite skates, being the Obsidian Airs and Ultraglide Glass mat blend.</p>
+            <p>The mousepads tested include the PAN glass pad, Joker Game pad, and more budget options from other brands. Each pad was tested with 2 of my favorite skates, being the Obsidian Airs and Ultraglide Glass mat blend.</p>
             
             <p>After extensive testing, I've found that several budget options offer 90% of the performance of premium glass pads at just 30-40% of the price. While the premium options may have slight advantages in edge finishing and packaging, the actual glide experience and durability are remarkably similar.</p>
             
@@ -1276,7 +1309,7 @@
                     <h4>My experience:</h4>
                     <p><strong>With Obsidian Airs:</strong> These provide a nice and quiet experience with this pad specifically. It has very low resistance when making microadjustments due to the nature of being a glass pad, although the main thing to note is stopping power. Despite having used glass for thousands of hours, the Obsidian Airs on the Joker Game uncoated had great stopping power. This pad basically exaggerates the properties of the skates, so in the case of the Obsidian Airs, it really exaggerated the control aspect of the skates, leading to a very balanced glide that's friendly for anyone new to glass.</p>
                     
-                    <p>Speed is further increased if you use speed focused skates such as XRaypad Jadees and Ultraglides. As I said, this pad heavily exaggerates the skates' properties, therefore jades and ultraglides feel insanely fast with very little stopping power, despite the ultraglides being very worn in for about 3 weeks.</p>
+                    <p>Speed is further increased if you use speed focused skates such as XRaypad Jades and Ultraglides. As I said, this pad heavily exaggerates the skates' properties, therefore jades and ultraglides feel insanely fast with very little stopping power, despite the ultraglides being very worn in for about 3 weeks.</p>
                     
                     <p><strong>With Ultraglide Glass Mat Blend:</strong> These skates make this pad an absolute speed demon, with microadjustments, tracking, and recoil control feeling effortless. This combination excels at dynamic scenarios but personally lacks the control and stopping power the Obsidian Airs provided. I found myself having trouble target switching and acquiring targets due to the speed, but for people who are chasing speed on a budget, this is absolutely the combination for you.</p>
                     
@@ -1295,7 +1328,6 @@
                     <p>This has been the newest pad in my collection, provides a very balanced glide and a relatively comfortable and consistent experience compared to the Joker Game uncoated.</p>
 
                     <p>The coating of this pad has so far have not been an issue. No problems with inconsistency in speed or performance.</p>
-
                     <p><strong>With Obsidian Airs:</strong> The pad provides a very moderate amount of resistance when tracking or doing recoil control. Inputs will still feel smooth and consistent but it is actually slightly easier to get the mouse going on this pad compared to the Joker Game uncoated. The amount of stopping power is also overall less than Joker Game uncoated. Tracking with this mousepad felt amazing. I personally had a lot of confidence taking 1v1 aim duels without worrying about absurd amount of speed or control. Static and dynamic clicking also felt amazing, never once where this pad was too fast to the point where clicking and stopping would cause shaking or inconsistencies for me. Tracking and recoil control were all smooth motions and long range tracking was absolutely amazing as the very moderate resistance (for a glass pad) wouldn't make me overreact to strafes or direction changes.</p>
                     
                     <p><strong>With Ultraglide Glass Mat Blend:</strong> This was a rather shocking experience for me. The pad with worn ultraglides would definitely be a speed increase, it wasn't as fast as the Joker Game uncoated and I actually did not feel a noticable difference in stopping power between the Obsidian airs. This experience was a rather nice speedy experience, very low resistance and force to get the mouse going with the perfect amount of stopping power for me. To keep this section short, every single aiming scenario feel extremely comfortable, and never once where I felt that any part of this pad was really holding me back.</p>
@@ -1308,11 +1340,13 @@
                 <div class="glide-test-container">
                     <p class="glide-intro">Below are side-by-side glide test demonstrations for all pads tested. These tests were performed with the same mouse (Viper V3 Pro) and consistent force to highlight the differences in surface characteristics.</p>
                     
+                    <div class="glide-control-button" id="playGlideTestsBtn">Click for Glide Test</div>
+
                     <div class="glide-grid">
                         <div class="glide-card">
                             <h4>Joker Game (uncoated)</h4>
                             <div class="glide-demo">
-                                <img src="images/jguncoated.gif" alt="Glide test on Joker Game uncoated" class="glide-gif">
+                                <img src="images/jgcoated_static.png" alt="Glide test on Joker Game uncoated" class="glide-gif" data-gif="images/jguncoated.gif">
                             </div>
                             <p class="glide-description">Smooth, fast glide with minimal initial friction. Notice the extended slide distance showing low stopping power.</p>
                         </div>
@@ -1320,7 +1354,7 @@
                         <div class="glide-card">
                             <h4>Joker Game (coated)</h4>
                             <div class="glide-demo">
-                                <img src="images/jgcoat.gif" alt="Glide test on Joker Game coated" class="glide-gif">
+                                <img src="images/jgcoat_static.png" alt="Glide test on Joker Game coated" class="glide-gif" data-gif="images/jgcoat.gif">
                             </div>
                             <p class="glide-description">Inconsistent glide with noticeable slow spots. Mouse doesn't maintain consistent momentum across the surface.</p>
                         </div>
@@ -1328,7 +1362,7 @@
                         <div class="glide-card">
                             <h4>PAN (coated)</h4>
                             <div class="glide-demo">
-                                <img src="images/pancoated.gif" alt="Glide test on PAN coated" class="glide-gif">
+                                <img src="images/pancoated_static.png" alt="Glide test on PAN coated" class="glide-gif" data-gif="images/pancoated.gif">
                             </div>
                             <p class="glide-description">Balanced glide with moderate initial friction. Provides better stopping power than uncoated options while maintaining smooth movement.</p>
                         </div>
@@ -1336,7 +1370,7 @@
                         <div class="glide-card">
                             <h4>Skypad 3.0</h4>
                             <div class="glide-demo">
-                                <img src="images/skypad.gif" alt="Glide test on Skypad 3.0" class="glide-gif">
+                                <img src="images/skypad_static.png" alt="Glide test on Skypad 3.0" class="glide-gif" data-gif="images/skypad.gif">
                             </div>
                             <p class="glide-description">Textured glide with moderate friction. The micro-texture creates a balanced, controlled movement with good stopping power.</p>
                         </div>
@@ -1344,7 +1378,7 @@
                         <div class="glide-card">
                             <h4>SP-004</h4>
                             <div class="glide-demo">
-                                <img src="images/sp004.gif" alt="Glide test on SP-004" class="glide-gif">
+                                <img src="images/sp004_static.png" alt="Glide test on SP-004" class="glide-gif" data-gif="images/sp004.gif">
                             </div>
                             <p class="glide-description">Very similar to Joker Game uncoated. Fast, smooth glide with minimal friction and extended slide characteristics.</p>
                         </div>
@@ -1597,9 +1631,66 @@
 
     <footer>
         <p>Contact Me! 
-            <a href="https://x.com/hateqqw">Twitter</a> | 
+            <a href="https://x.com/hateqqw">Twitter</a> 
             <a href="https://github.com/Yubendh">Github</a>
         </p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const playButton = document.getElementById('playGlideTestsBtn');
+            const glideImages = document.querySelectorAll('.glide-gif');
+            
+            // Setup for all devices, not just desktop
+            glideImages.forEach(img => {
+                // Store the actual GIF URL as a data attribute if not already set
+                if (!img.hasAttribute('data-gif')) {
+                    img.setAttribute('data-gif', img.src);
+                    // Create static image name (replace .gif with _static.jpg or _static.png)
+                    const staticSrc = img.src.replace('.gif', '_static.png');
+                    img.src = staticSrc;
+                }
+            });
+            
+            // Make button work for all devices
+            playButton.addEventListener('click', function() {
+                // Prevent multiple clicks
+                if (playButton.classList.contains('in-progress')) {
+                    return;
+                }
+                
+                // Change button text and add in-progress class
+                playButton.textContent = 'Glide Test in Progress';
+                playButton.classList.add('in-progress');
+                
+                // Store static images and replace with GIFs
+                glideImages.forEach(img => {
+                    // Store current static image
+                    const staticSrc = img.src;
+                    img.setAttribute('data-static', staticSrc);
+                    
+                    // Change to GIF
+                    const gifUrl = img.getAttribute('data-gif');
+                    if (gifUrl) {
+                        img.src = gifUrl;
+                    }
+                });
+                
+                // Reset button and images after 2.3 seconds
+                setTimeout(() => {
+                    playButton.textContent = 'Click for Glide Test';
+                    playButton.classList.remove('in-progress');
+                    
+                    // Return to static images
+                    glideImages.forEach(img => {
+                        const staticSrc = img.getAttribute('data-static');
+                        if (staticSrc) {
+                            img.src = staticSrc;
+                        }
+                    });
+                }, 2300);
+            });
+        });
+    </script>
 </body>
 </html>
