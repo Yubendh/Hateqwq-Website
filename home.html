@@ -168,7 +168,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 30px 20px 0; /* Reduced top padding to move everything up */
+            padding: 30px 20px 0;
             opacity: 0;
             animation: fadeIn 1s forwards 1.5s;
         }
@@ -178,11 +178,11 @@
         }
 
         .profile-img {
-            width: 170px; /* Slightly larger */
+            width: 170px;
             height: auto;
             border-radius: 15px;
             border: 2px solid white;
-            margin-bottom: 10px; /* Reduced margin to minimize space */
+            margin-bottom: 10px;
             transition: transform 0.3s ease;
         }
 
@@ -208,7 +208,7 @@
         }
 
         .text-center h1, .text-center h2 {
-            font-size: 48px; /* Increased from 36px */
+            font-size: 48px;
             text-shadow: 
                 3px 3px 0 #000,
                 5px 5px 10px rgba(0, 0, 0, 0.8),
@@ -218,7 +218,7 @@
         }
 
         .text-center p {
-            font-size: 22px; /* Increased from 18px */
+            font-size: 22px;
             font-weight: bold;
             text-shadow: 
                 2px 2px 0 #000,
@@ -282,12 +282,12 @@
         }
 
         .about-content p:last-of-type {
-            margin-bottom: 30px; /* Reduce space between last paragraph and peripherals section */
+            margin-bottom: 30px;
         }
 
         .peripherals-section {
             grid-area: peripherals;
-            background-color: #1c1c1c; /* Same as about section */
+            background-color: #1c1c1c;
             padding: 0 20px 40px 20px;
             position: relative;
             z-index: 1;
@@ -295,7 +295,7 @@
         
         .peripherals-header {
             background-color: black;
-            margin: 20px -20px 25px; /* Reduced top margin */
+            margin: 20px -20px 25px;
             padding: 15px;
             text-align: center;
         }
@@ -382,7 +382,7 @@
             opacity: 0;
             animation: fadeIn 1s forwards 3.2s;
             width: 100%;
-            overflow: hidden; /* Prevent horizontal overflow */
+            overflow: hidden;
         }
         
         .reviews-title {
@@ -400,7 +400,7 @@
             overflow-x: auto;
             scrollbar-width: thin;
             scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.2);
-            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+            -webkit-overflow-scrolling: touch;
         }
         
         .reviews-container::-webkit-scrollbar {
@@ -526,13 +526,13 @@
             grid-area: articles;
             padding: 60px 0 40px;
             position: relative;
-            background-color: #2a2a2a; /* Lighter gray background */
+            background-color: #2a2a2a;
             z-index: 1;
             opacity: 0;
             animation: fadeIn 1s forwards 2.5s;
             width: 100%;
             overflow: hidden;
-            position: relative; /* Ensure relative positioning for absolute child elements */
+            position: relative;
         }
         
         .articles-title {
@@ -654,7 +654,7 @@
             color: white;
             font-size: 24px;
             cursor: pointer;
-            z-index: 100; /* Higher z-index to ensure visibility */
+            z-index: 100;
             transition: all 0.3s ease;
             opacity: 0.7;
         }
@@ -797,7 +797,6 @@
             }
         }
 
-        /* Footer fix - ensure it's properly positioned at the bottom */
         footer {
             grid-area: footer;
             width: 100%;
@@ -813,7 +812,6 @@
             margin-top: 0;
         }
 
-        /* Add these missing footer styles */
         footer p {
             color: white;
             font-size: 12px;
@@ -944,7 +942,7 @@
                     <div class="peripheral-overlay">
                         <h3>Headphones</h3>
                         <p>Sennheiser x Massdrop HD6XX - Open back headphones.</p>
-                        <a href="https://salvun.com/products/salvation">View Details →</a>
+                        <a href="https://drop.com/buy/massdrop-sennheiser-hd6xx">View Details →</a>
                     </div>
                 </div>
                 
@@ -960,26 +958,21 @@
         </div>
     </section>
 
-    <!-- Reviews Section with Coming Soon message but keeping scroll indicators -->
     <section class="reviews-section">
         <h2 class="reviews-title">Peripheral Reviews</h2>
         <div class="reviews-container" id="reviewsContainer">
-            <!-- Coming soon message -->
             <div style="text-align: center; padding: 50px 20px; font-size: 22px; min-width: 100%; display: flex; justify-content: center;">
                 <p>Coming soon! Check back later for detailed peripheral reviews.</p>
             </div>
         </div>
-        <!-- Keeping scroll indicators for future use -->
         <div class="scroll-indicator scroll-left" id="scrollLeft">&lt;</div>
         <div class="scroll-indicator scroll-right" id="scrollRight">&gt;</div>
     </section>
 
-    <!-- Articles Section with only one article but keeping scroll indicators -->
     <section class="articles-section">
         <h2 class="articles-title">Articles</h2>
         <div class="articles-container" id="articlesContainer">
             <div class="articles-grid">
-                <!-- Keeping just one article -->
                 <div class="article-item">
                     <img src="images/article1.jpg" alt="Budget Glass Mousepads">
                     <div class="article-overlay">
@@ -990,7 +983,6 @@
                 </div>
             </div>
         </div>
-        <!-- Keeping scroll indicators for future use -->
         <div class="article-scroll-indicator article-scroll-left" id="articleScrollLeft">&lt;</div>
         <div class="article-scroll-indicator article-scroll-right" id="articleScrollRight">&gt;</div>
     </section>
@@ -1009,10 +1001,8 @@
             const rightBtn = document.getElementById('scrollRight');
             
             if (leftBtn && rightBtn && container) {
-                // Scroll amount (approximately the width of one card plus gap)
                 const scrollAmount = 320;
                 
-                // Left button click handler
                 leftBtn.addEventListener('click', function() {
                     container.scrollBy({
                         left: -scrollAmount,
@@ -1020,7 +1010,6 @@
                     });
                 });
                 
-                // Right button click handler
                 rightBtn.addEventListener('click', function() {
                     container.scrollBy({
                         left: scrollAmount,
@@ -1028,7 +1017,6 @@
                     });
                 });
                 
-                // Touch swipe functionality for mobile
                 let startX;
                 
                 container.addEventListener('touchstart', function(e) {
@@ -1037,16 +1025,14 @@
                 
                 container.addEventListener('touchend', function(e) {
                     const endX = e.changedTouches[0].clientX;
-                    const threshold = 50; // Minimum distance for swipe
+                    const threshold = 50;
                     
                     if (startX - endX > threshold) {
-                        // Swipe left - go right
                         container.scrollBy({
                             left: scrollAmount,
                             behavior: 'smooth'
                         });
                     } else if (endX - startX > threshold) {
-                        // Swipe right - go left
                         container.scrollBy({
                             left: -scrollAmount,
                             behavior: 'smooth'
@@ -1060,10 +1046,8 @@
             const articleRightBtn = document.getElementById('articleScrollRight');
             
             if (articleLeftBtn && articleRightBtn && articlesContainer) {
-                // Scroll amount (approximately the width of one card plus gap)
                 const scrollAmount = 320;
                 
-                // Left button click handler
                 articleLeftBtn.addEventListener('click', function() {
                     articlesContainer.scrollBy({
                         left: -scrollAmount,
@@ -1071,7 +1055,6 @@
                     });
                 });
                 
-                // Right button click handler
                 articleRightBtn.addEventListener('click', function() {
                     articlesContainer.scrollBy({
                         left: scrollAmount,
@@ -1079,7 +1062,6 @@
                     });
                 });
                 
-                // Touch swipe functionality for mobile
                 let startX;
                 
                 articlesContainer.addEventListener('touchstart', function(e) {
@@ -1088,16 +1070,14 @@
                 
                 articlesContainer.addEventListener('touchend', function(e) {
                     const endX = e.changedTouches[0].clientX;
-                    const threshold = 50; // Minimum distance for swipe
+                    const threshold = 50;
                     
                     if (startX - endX > threshold) {
-                        // Swipe left - go right
                         articlesContainer.scrollBy({
                             left: scrollAmount,
                             behavior: 'smooth'
                         });
                     } else if (endX - startX > threshold) {
-                        // Swipe right - go left
                         articlesContainer.scrollBy({
                             left: -scrollAmount,
                             behavior: 'smooth'
