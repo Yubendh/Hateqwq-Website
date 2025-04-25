@@ -799,11 +799,13 @@
 
     <script>
         function playSound(switchType) {
-            // This is a placeholder - you'll need to implement actual sound playing
-            alert('Playing ' + switchType + ' sound test - add your actual audio files and player implementation');
-            // When you have the audio files, use something like:
-            // const audio = new Audio('sounds/' + switchType + '-soundtest.mp3');
-            // audio.play();
+            // Play the sound file from the sounds directory
+            const audio = new Audio('/sounds/' + switchType + '.mp3');
+            audio.play().catch(error => {
+                // Fallback if audio playback fails
+                console.error('Error playing audio:', error);
+                alert('Could not play sound for ' + switchType + '. Make sure audio files are available.');
+            });
         }
     </script>
 </body>
